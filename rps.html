@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock, Paper, Scissors</title>
+  <style>
+  </style>
+</head>
+<body>
+  <script>
+      //computer player choices rock,paper or scissor
+      function computerPlay() {
+          let randomNumber=Math.floor(Math.random()*3); //random number 0,1,2
+          switch (randomNumber) {
+              case 0:
+              return "rock";
+              break;
+              case 1:
+              return "paper";
+              break;
+              case 2:
+              return "scissors";
+              break;
+              default:
+              return "Invalid Input";
+              break;
+              //returns rock paper or scissors
+          }
+    
+      }
+    //function that plays a round of the game
+    function gamePlay(playerSelection,computerSelection) {
+        var playerSelection= playerChoice.toLowerCase();
+        var computerSelection = computerPlay();
+        if (playerSelection === "rock" && computerSelection ==="scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper") {
+            return "Player wins, "+  playerSelection + " beats " + computerSelection;
+        } else if (playerSelection === "rock" && computerSelection ==="paper" || playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock") {
+            return "Player loses, " + computerSelection + " beats " + playerSelection;
+        } else if (playerSelection === "rock" && computerSelection ==="rock" || playerSelection === "paper" && computerSelection === "paper" || playerSelection === "scissors" && computerSelection === "scissors") {
+            return "Tie";
+        } else {
+            return playerChoice + " is not valid. Please Enter, Rock, Paper or Scissors";
+        }
+    }
+    var playerChoice = 'rock';
+    console.log(gamePlay())
+  </script>
+</body>
+</html>
