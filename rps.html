@@ -1,64 +1,27 @@
 <!DOCTYPE html>
-<script>
+<head>
+    <title>Man vs Machine</title>
+    <link href='design.css' type='text/css' rel='stylesheet'>
     
-    // computer choice function
-    function computerChoice() {
-        let randomNumber = Math.floor(Math.random()*3) //picks 1,2,3
-        switch (randomNumber){
-            case 0:
-            return "rock";
-            break;
-            case 1:
-            return "paper";
-            break;
-            case 2:
-            return "scissor";
-            break;
-            default:
-            "Invalid Output";
-            break;
-        }
-    }
-    //play a round of RPS
-    function gamePlay(playerSelection,computerSelection){
-        if (playerSelection === "rock" && computerSelection ==="scissor" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissor" && computerSelection === "paper") {
-            return "win";
-        } else if (playerSelection === "rock" && computerSelection ==="paper" || playerSelection === "paper" && computerSelection === "scissor" || playerSelection === "scissor" && computerSelection === "rock") {
-            return "lose"
-        } else if (playerSelection === "rock" && computerSelection ==="rock" || playerSelection === "paper" && computerSelection === "paper" || playerSelection === "scissor" && computerSelection === "scissor") {
-            return "tie";
-        } else {
-            return "Rock, Paper or Scissor?";
-        }
-    }
-//loop
-var pScore = 0;
-var cScore = 0;
-for (i=0; i<5; i++) {
-    //get players choice
-    var playerSelection = prompt("Rock, Paper or Scissor").toLowerCase();
-    //computer picks
-    var computerSelection = computerChoice();
-    //run game
-    result = gamePlay(playerSelection,computerSelection);
-    //print result from game
-    console.log(result);
-    //apply point
-    if (result ==="win") {
-        pScore++;
-    } else if (result==="lose") {
-        cScore++;
-    } else {
-
-    }
-}
-// after 5 rounds whos win
-if (pScore>cScore) {
-    console.log("You Win");
-} else if (pScore<cScore) {
-    console.log("You Lose");
-} else {
-    console.log("Its a draw");
-}
-
-</script>
+</head>
+<body>
+    <div>
+        <h1>Man vs Machine</h1>
+        <p>Who will win? <br> Man or Machine in in this epic game of.... <br><strong>Rock Paper Scissors</strong></p>
+        <button id='rock'>Rock</button>
+        <button id='paper'>Paper</button>
+        <button id='scissor'>Scissor</button>
+    </div>
+    <div class='scores'>
+        <p>Man</p>
+        <p id='playerScore'></p>
+        <p>Machine</p>
+        <p id='computerScore'></p>
+        <p id='result'></p>
+        <p id='winner'></p>      
+    </div>
+    <div>
+        <button id='reset'>Replay</button>
+    </div>
+    <script src="gamplay.js"></script>
+</body>
